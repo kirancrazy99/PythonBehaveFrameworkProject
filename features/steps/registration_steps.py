@@ -1,12 +1,13 @@
 from behave import *
 
-
+from Utilities import Configreader
 from features.PageObjects.RigistrationPage import RegistrationPage as RP
 
 
 @given(u'I navigate to the URL qa.way2automation.com')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Given I navigate to the URL qa.way2automation.com')
+    context.reg = RP(driver=context.driver)
+    context.reg.open(Configreader.config_reader("basic info","testsiteurl"))
 
 
 @when(u'I enter name as "<name>"')

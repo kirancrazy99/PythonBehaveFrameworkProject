@@ -6,6 +6,9 @@ class RegistrationPage(BasePage):
     def __init__(self,driver):
         super().__init__(driver)
 
+    def open(self,url):
+        self.driver.get(url)
+
     def setName(self,name):
         self.driver.entry(config_reader("name_Xpath"),name)
 
